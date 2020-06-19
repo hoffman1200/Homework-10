@@ -40,12 +40,9 @@ const questionsEmployee = [
 function manager() {
     console.log("Let's build your team");
     inquirer.prompt(questionsEmployee).then(function(data){
-        console.log(data.nameManager);
         const manager = new Manager(data.nameManager, data.managerId, data.emailManager, data.officeNumber);
         teamMembers.push(manager);
         emptyId.push(data.managerId);
-        console.log(teamMembers);
-        console.log(emptyId);
         team();
     });
 };
@@ -64,10 +61,8 @@ function team() {
         }
     ]).then(function(data){
         if (data.memberChoice === "Engineer"){
-            console.log("Engineer");
             engineer();
         } else if (data.memberChoice === "Intern"){
-            console.log("Intern");
             intern();
         } else (outputTeam());
     });
